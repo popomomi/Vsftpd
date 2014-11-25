@@ -5,15 +5,12 @@ FTP (viết tắt của File Transfer Protocol dịch ra là "Giao thức truy�
 Hoạt động của FTP cần có hai máy tính, một máy chủ và một máy khách). Máy chủ FTP, dùng chạy phần mềm cung cấp dịch vụ FTP, gọi là trình chủ, lắng nghe yêu cầu về dịch vụ của các máy tính khác trên mạng lưới. Máy khách chạy phần mềm FTP dành cho người sử dụng dịch vụ, gọi là trình khách, thì khởi đầu một liên kết với máy chủ. Một khi hai máy đã liên kết với nhau, máy khách có thể xử lý một số thao tác về tập tin, như tải tập tin lên máy chủ, tải tập tin từ máy chủ xuống máy của mình, đổi tên của tập tin, hoặc xóa tập tin ở máy chủ v.v. Vì giao thức FTP là một giao thức chuẩn công khai, cho nên bất cứ một công ty phần mềm nào, hay một lập trình viên nào cũng có thể viết trình chủ FTP hoặc trình khách FTP. 
 Hầu như bất cứ một nền tảng hệ điều hành máy tính nào cũng hỗ trợ giao thức FTP. Điều này cho phép tất cả các máy tính kết nối với một mạng lưới có nền TCP/IP, xử lý tập tin trên một máy tính khác trên cùng một mạng lưới với mình, bất kể máy tính ấy dùng hệ điều hành nào (nếu các máy tính ấy đều cho phép sự truy cập của các máy tính khác, dùng giao thức FTP). Hiện nay trên thị trường có rất nhiều các trình khách và trình chủ FTP, và phần đông các trình ứng dụng này cho phép người dùng được lấy tự do, không mất tiền.
 
-
-
 Sau đây là cách để xây dựng một máy chủ FTP.
 (Đây chỉ là bài LAB dựng trên VMWARE của mình, để triển khai trên các thiết bị khác tương tự).
 
 ##### I. Xem có những gì cần chuẩn bị nào :
-
 ###### 1. Một máy chủ VMWARE  chạy hệ điều hành Centos 6.5 (hoặc hơn) với các thông số như sau.
-<img s rc="http://prntscr.com/59zdrn">
+<img src="http://i.imgur.com/YtFfpiA.png">
 ###### 2.Một trình duyệt nào đó(ở đây mình dùng Firefox) và phần mềm Winscp với chức năng FTP.
 
 ##### II. Bắt đầu quá trình cài đặt :
@@ -42,8 +39,7 @@ ftpd_banner=Welcome to UNIXMEN FTP service.
 ## Add at the end of this  file ##
 use_localtime=YES
 ```
-
--B4 : Mở port ftp (mặc định là port 21):
+- B4 : Mở port ftp (mặc định là port 21):
 ```
 iptables -I INPUT  -m tcp -p tcp -m conntrack --ctstate NEW --dport 21 -j ACCEPT
 ```
@@ -92,11 +88,5 @@ ftp 192.168.10.5
 ```
 
 Lên trình duyệt và ta đước kết quả như sau:
-<img src=""http://prntscr.com/59zkv3"
-
-
-
-The end. ^^
-
-
-
+<img src="http://i.imgur.com/3uIz7dX.png">
+The end. ^
